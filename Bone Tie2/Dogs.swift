@@ -36,9 +36,7 @@ class Dogs: UITableViewController {
         for dog in dogs {
             images.append(dog.photo!)
         }
-        //image = images
-        //image.duration = 2
-        //let imagView = UIImageView(frame: )
+        let imageView = UIImageView(frame: CGRect())
         /*let label = UILabel(frame: self.headerView.frame)
         label.text = "My Dogs"
         self.headerView.addSubview(label)*/
