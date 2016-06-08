@@ -1,0 +1,44 @@
+# Bone-Tie-2
+Cloud kit
+- [ ] Chat between users (Medium Term Goal)
+- [ ] Alerts User if other owner is with dog and left home zone
+- [ ] Alerts other users if there is a lost dog in that area
+- [ ] Upload pictures, videos, comments, etc.
+- [ ] Add features for multiple users for one dog (make it easier on second user)
+- [ ] allow users to record own notification sounds (Goal for week of June 6)
+- [ ] follow other dogs and users
+- [ ] make user accounts
+- [ ] make dog accounts (no sign in just for following)
+- [ ] delete from iCloud easier
+- [ ] know when user is signed in under iCloud (whether or not they have an iCloud account)
+- [ ] Set up iCloud home zone (also without icloud i need to set up home zone) (Long Term Goal)
+- [ ] add alerts when new alike dog is added near town
+- [ ] add alerts when dog leaves home zone
+- [ ] let users view all notifications (Goal for week of June 6)
+- [ ] add view that shows all lost dogs
+Other
+- [ ] add page for feed back (email)
+- [ ] send email or sms alerts (possibly none for user)
+- [ ] add a couple game modes
+- [ ] add alerts for food time and medicine time and other things with schedule if wanted (goal for Week of June 6) 
+- [ ] Add page showing all repeating alerts (Long Term Goal)
+- [ ] share dog location photo and other necessary information to find immediately when lost to friends and family (need to add functionality for this without lost mode first)
+- [ ] Redesign UI
+- [ ] Tutorial through app
+- [ ] make annotations better
+- [ ] allow users to buy a bone tie in the app
+- [ ] use apple pay for users to buy bone tie and cellular service
+- [ ] add calories/active minutes/miles walked
+- [ ] add nice animations
+- [ ] add help page
+- [ ] add forum
+- [ ] save image library of dogs in app and photos
+- [ ] add multistep adding dog
+- [ ] fix all bugs
+- [ ] Add rewards if found their dog
+- [ ] Color for the dog
+- [ ] Show nearby businesses to call to alert them (Goal for Week of June 6)
+- [X] Add feature for dropdown menu
+- [X] Call the dog collar
+Things for later
+- [ ] Rate places based on whether they helped or not find a lost dog
