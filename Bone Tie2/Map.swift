@@ -123,7 +123,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, CLLocationManagerD
             }
             dogNumber += 1
         }
-        let AnnotationDog = UIImageView.init(image: dogs[dogNumber].photo)
+        let AnnotationDog = UIImageView(image: dogs[dogNumber].photo)
         if annotation is MKUserLocation {
             return nil
         }

@@ -3,15 +3,18 @@ PODS:
     - Charts/Core (= 2.2.5)
   - Charts/Core (2.2.5)
   - HanekeSwift (0.10.1)
+  - Interpolate (0.1.4)
 
 DEPENDENCIES:
   - Charts
   - HanekeSwift
+  - Interpolate
 
 SPEC CHECKSUMS:
   Charts: b48fcc8d7190de910ff9e9748f5360c8ea7856e5
   HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
+  Interpolate: b59d8bf719809fa8aa119bc4cc4542cbed3fe46d
 
-PODFILE CHECKSUM: 09b8f802881940a48be5219ccd8ccf823742367f
+PODFILE CHECKSUM: d363048a45050e6ad196863e321fcaa78efe949c
 
 COCOAPODS: 1.0.0

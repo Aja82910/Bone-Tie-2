@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Interpolate.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Pods-Bone Tie 3.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,6 +37,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>18F9F808E72AA4A3A6E6F4633D826346</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>2C2B1953A91633859BF7AD238FF567A0</key>
 		<dict>
 			<key>primary</key>
@@ -42,17 +52,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5C146E0E82E03C18A40D9B889B2F5F80</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9ECED6EB65898B5F26A9098B23F94243</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>C6828C2508515BC0428D6BDAA1292DC9</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EB289DF1188B795499E1A36445988E62</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -20,9 +20,17 @@ class Dogs: UITableViewController {
     var dogs = [dog]()
     var headerView = UIView()
     var x = 1
+    var imageView = UIImageView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let savedDogs = loadDogs() {
+            dogs += savedDogs
+        }
+        else {
+            //loadSampleDogs()
+        }
+        //Lost().dogs = dogs
         tableView.backgroundColor = UIColor(red: 0.1, green: 0.1, blue: 0.1, alpha: 1.0)
     /* Open.target = self.revealViewController()
         Open.action = Selector("revealToggle:")
@@ -36,18 +44,22 @@ class Dogs: UITableViewController {
         for dog in dogs {
             images.append(dog.photo!)
         }
-        let imageView = UIImageView(frame: CGRect())
+        images.append(UIImage(named: "Medicine")!)
+        images.append(UIImage(named: "Photo")!)
+        images.append(UIImage(named: "Nimble")!)
+        images.append(UIImage(named: "Food")!)
+        imageView = UIImageView(frame: CGRect(origin: self.headerView.frame.origin, size: CGSize(width: 133 / 192 * (headerView.frame.width), height: headerView.frame.height)))
+        imageView.animationImages = images
+        print(images.count)
+        print(dogs.count)
+        imageView.animationDuration = 15
+        imageView.animationRepeatCount = 0
+        headerView.addSubview(imageView)
+        imageView.startAnimating()
         /*let label = UILabel(frame: self.headerView.frame)
         label.text = "My Dogs"
         self.headerView.addSubview(label)*/
         self.tableView.tableHeaderView = headerView
-        if let savedDogs = loadDogs() {
-            dogs += savedDogs
-        }
-        else {
-            //loadSampleDogs()
-        }
-        //Lost().dogs = dogs
         self.clearsSelectionOnViewWillAppear = false
 
         //self.navigationItem.leftBarButtonItem = self.editButtonItem()
@@ -186,8 +198,15 @@ class Dogs: UITableViewController {
         self.presentViewController(alert, animated: true,
             completion: nil)
     }
-    
+    override func viewDidDisappear(animated: Bool) {
+        UIView.animateWithDuration(0.2) {
+            self.imageView.frame = CGRect(origin: self.imageView.frame.origin, size: CGSize(width: 157 / 192 * (self.headerView.frame.width), height: self.imageView.frame.height))
+        }
+    }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        UIView.animateWithDuration(0.05) {
+            self.imageView.frame = CGRect(origin: self.imageView.frame.origin, size: CGSize(width: self.view.frame.width, height: self.imageView.frame.height))
+        }
         if segue.identifier == "ShowDogs" {
             let DestViewController = segue.destinationViewController as! UINavigationController
             let targetController = DestViewController.topViewController as! LostViewController

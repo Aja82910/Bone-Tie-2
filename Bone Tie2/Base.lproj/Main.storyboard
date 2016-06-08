@@ -379,9 +379,9 @@
                         <outlet property="More" destination="zcx-Lv-YUB" id="CLd-6V-8ZD"/>
                         <outlet property="Open" destination="ZrJ-rw-mG8" id="Qyd-PJ-sVh"/>
                         <outlet property="Refresh" destination="G0e-3M-SeY" id="YnS-UF-iGf"/>
-                        <segue destination="nVW-xe-72p" kind="show" identifier="DogsInfoLocation" id="1Zp-UR-jT0"/>
                         <segue destination="VEu-b7-APV" kind="show" identifier="AddReminder" id="0Og-be-PlW"/>
                         <segue destination="xUn-5G-pVQ" kind="show" identifier="Setting" id="yee-gE-s1b"/>
+                        <segue destination="eZB-iq-35d" kind="show" identifier="DogsInfoLocation" id="MSB-2M-ybB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zqa-nN-n4m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -487,7 +487,7 @@
                                         <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="HUu-9r-ad6" id="ciX-Xb-Mgo">
-                                            <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Device Information" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Fk-bu-fQZ">
@@ -576,6 +576,55 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wWl-ds-qhy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4217" y="-1005"/>
+        </scene>
+        <!--Dog Location View Controller-->
+        <scene sceneID="xiR-kY-n8L">
+            <objects>
+                <viewController id="eZB-iq-35d" customClass="DogLocationViewController" customModule="Bone_Tie_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fKU-0T-Hhp"/>
+                        <viewControllerLayoutGuide type="bottom" id="dtM-or-TDl"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Bxb-K2-DXy">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Cx-al-eF9">
+                                <rect key="frame" x="230" y="156" width="141" height="30"/>
+                                <state key="normal" title="Location Information"/>
+                                <connections>
+                                    <segue destination="nVW-xe-72p" kind="show" identifier="LocationInfo" id="cWg-ch-SLO"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rlJ-mk-Oha">
+                                <rect key="frame" x="220" y="285" width="161" height="30"/>
+                                <state key="normal" title="Turn By Turn Directions"/>
+                                <connections>
+                                    <segue destination="GdK-5P-mLR" kind="show" identifier="Directions" id="4Dn-Fu-gr6"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdX-zl-sIT">
+                                <rect key="frame" x="242" y="420" width="116" height="30"/>
+                                <state key="normal" title="Nearby Buildings"/>
+                                <connections>
+                                    <segue destination="gyJ-Ui-lo1" kind="show" identifier="Nearby" id="Oi7-45-DQC"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="dtM-or-TDl" firstAttribute="top" secondItem="NdX-zl-sIT" secondAttribute="bottom" constant="150" id="1eH-lN-Tcm"/>
+                            <constraint firstItem="rlJ-mk-Oha" firstAttribute="centerX" secondItem="NdX-zl-sIT" secondAttribute="centerX" id="3Uz-ER-TVJ"/>
+                            <constraint firstItem="0Cx-al-eF9" firstAttribute="top" secondItem="fKU-0T-Hhp" secondAttribute="bottom" constant="92" id="Ket-yt-Qtp"/>
+                            <constraint firstItem="0Cx-al-eF9" firstAttribute="centerX" secondItem="Bxb-K2-DXy" secondAttribute="centerX" id="NaK-fg-D4p"/>
+                            <constraint firstItem="rlJ-mk-Oha" firstAttribute="centerY" secondItem="Bxb-K2-DXy" secondAttribute="centerY" id="QIT-eH-y5b"/>
+                            <constraint firstItem="0Cx-al-eF9" firstAttribute="centerX" secondItem="rlJ-mk-Oha" secondAttribute="centerX" id="h9n-cs-klF"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gye-1D-zz1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4136" y="-320"/>
         </scene>
         <!--Dogs Location Info-->
         <scene sceneID="1s3-Lg-c36">
@@ -713,7 +762,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ve5-1c-r5Y" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4199" y="-268"/>
+            <point key="canvasLocation" x="4874" y="744"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="wg7-f3-ORb">
@@ -1437,11 +1486,116 @@
                     </navigationItem>
                     <connections>
                         <segue destination="2Pz-HU-2ML" kind="show" identifier="AddDogCity" id="6KQ-bb-psL"/>
+                        <segue destination="u9L-2n-j2a" kind="show" identifier="AddDogMixedBreed" id="LH5-8f-y6c"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="goF-1z-h4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5108" y="-1687"/>
+        </scene>
+        <!--Nearby Buildings View Controller-->
+        <scene sceneID="3eI-vY-PJ9">
+            <objects>
+                <tableViewController id="gyJ-Ui-lo1" customClass="NearbyBuildingsViewController" customModule="Bone_Tie_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="o9v-V9-NK2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" id="2hZ-In-IKO">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2hZ-In-IKO" id="Ya6-Mk-Swj">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="gyJ-Ui-lo1" id="uIN-NL-7QR"/>
+                            <outlet property="delegate" destination="gyJ-Ui-lo1" id="cpE-Hx-mxk"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jZw-29-vNF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4874" y="-616"/>
+        </scene>
+        <!--Directions View Controller-->
+        <scene sceneID="89L-aY-vnf">
+            <objects>
+                <viewController id="GdK-5P-mLR" customClass="DirectionsViewController" customModule="Bone_Tie_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="hnA-Ae-YVa"/>
+                        <viewControllerLayoutGuide type="bottom" id="oxn-3q-ZRd"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="UFv-BJ-LBV">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kJJ-kq-RjW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4874" y="60"/>
+        </scene>
+        <!--New Dog-->
+        <scene sceneID="eNZ-wL-dWD">
+            <objects>
+                <tableViewController id="u9L-2n-j2a" customClass="AddDogMixedBreed" customModule="Bone_Tie_3" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="lwY-3c-FeO">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cells" id="5kA-Ud-OuV" customClass="AddDogBreedTableViewCell" customModule="Bone_Tie_3" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="5kA-Ud-OuV" id="1lD-qG-zGG">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G90-7R-f4U">
+                                            <rect key="frame" x="15" y="4" width="443" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="443" id="zyH-aX-UR5"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="G90-7R-f4U" firstAttribute="centerY" secondItem="1lD-qG-zGG" secondAttribute="centerY" id="Hzj-K4-Lpz"/>
+                                        <constraint firstItem="G90-7R-f4U" firstAttribute="top" secondItem="1lD-qG-zGG" secondAttribute="topMargin" constant="-4" id="aZd-t8-VEB"/>
+                                        <constraint firstItem="G90-7R-f4U" firstAttribute="leading" secondItem="1lD-qG-zGG" secondAttribute="leadingMargin" constant="7" id="nA7-oW-dLh"/>
+                                    </constraints>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="DogBreed" destination="G90-7R-f4U" id="VR3-HH-SIk"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <sections/>
+                        <connections>
+                            <outlet property="dataSource" destination="u9L-2n-j2a" id="c4b-lH-Ja1"/>
+                            <outlet property="delegate" destination="u9L-2n-j2a" id="OAm-EJ-VeC"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="New Dog" id="iTb-sk-Iin">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="gmi-eC-6op">
+                            <connections>
+                                <action selector="Cancel:" destination="u9L-2n-j2a" id="sDB-9T-ccu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="2Pz-HU-2ML" kind="show" identifier="NowAddDogCity" id="sWh-Gy-KaF"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MfP-nD-723" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5521" y="-1005"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dhY-eR-F6s">
@@ -1656,12 +1810,13 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="540" height="540"/>
+        <image name="Image" width="1080" height="1080"/>
         <image name="Nimble" width="1536" height="2048"/>
         <image name="second" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="2Gy-Na-YoW"/>
         <segue reference="Bxz-Wk-lLL"/>
+        <segue reference="2Gy-Na-YoW"/>
+        <segue reference="sWh-Gy-KaF"/>
     </inferredMetricsTieBreakers>
 </document>

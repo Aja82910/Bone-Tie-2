@@ -21,6 +21,9 @@
 		B10EFB7A1CD3E62D00D6AFAD /* AnnotationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10EFB791CD3E62D00D6AFAD /* AnnotationViewController.swift */; };
 		B10EFB7C1CD4777800D6AFAD /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B10EFB7B1CD4777800D6AFAD /* SettingsTableViewCell.swift */; };
 		B11029C41CC6D3DE00745166 /* LostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11029C31CC6D3DE00745166 /* LostViewController.swift */; };
+		B11184021D04EA580034936A /* DirectionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11184011D04EA580034936A /* DirectionsViewController.swift */; };
+		B11184041D04F5540034936A /* NearbyBuildingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11184031D04F5540034936A /* NearbyBuildingsViewController.swift */; };
+		B11184061D0502DB0034936A /* DogLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11184051D0502DB0034936A /* DogLocationViewController.swift */; };
 		B11374A41CDC1A45003BE4DE /* AddDogImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11374A31CDC1A45003BE4DE /* AddDogImage.swift */; };
 		B11374A61CDC1A5B003BE4DE /* AddDogName.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11374A51CDC1A5B003BE4DE /* AddDogName.swift */; };
 		B11374A81CDC1A76003BE4DE /* AddDogCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11374A71CDC1A76003BE4DE /* AddDogCity.swift */; };
@@ -32,6 +35,7 @@
 		B11551AE1CD688CB00AAA8BF /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B11551AD1CD688CB00AAA8BF /* Default-568h@2x.png */; };
 		B11551B01CD696D600AAA8BF /* TurorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11551AF1CD696D600AAA8BF /* TurorialViewController.swift */; };
 		B11551B21CD6C2A600AAA8BF /* dogsTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11551B11CD6C2A600AAA8BF /* dogsTutorialViewController.swift */; };
+		B11B81511D07883F00FC89A3 /* ZHDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B814E1D07883F00FC89A3 /* ZHDropDownMenu.swift */; };
 		B122A0671C4DC374008FBF64 /* EditDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A0661C4DC374008FBF64 /* EditDogViewController.swift */; };
 		B1278F7A1CA4CB7300D27304 /* Setings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1278F791CA4CB7300D27304 /* Setings.swift */; };
 		B129DBA71CEA5CC2009627D0 /* lostDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B129DBA61CEA5CC2009627D0 /* lostDog.swift */; };
@@ -44,6 +48,7 @@
 		B16D4F581C28B9C300780335 /* UIImageView+ImageViewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B16D4F561C28B9C300780335 /* UIImageView+ImageViewer.swift */; };
 		B17D6AA01C6517FF0080A09B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B17D6A9E1C6517FF0080A09B /* Main.storyboard */; };
 		B1AB57BE1CCFB147003D2625 /* DogsLocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB57BD1CCFB147003D2625 /* DogsLocationInfo.swift */; };
+		B1B52E081D049053009FA754 /* AddDogMixedBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B52E071D049053009FA754 /* AddDogMixedBreed.swift */; };
 		B1D6E0FA1CE3DEFF00F23A50 /* LookingForDogsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D6E0F91CE3DEFF00F23A50 /* LookingForDogsTableViewController.swift */; };
 		B1D6E0FC1CE41DBB00F23A50 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D6E0FB1CE41DBB00F23A50 /* MapKit.framework */; };
 		B1D8430A1BF68A420019A468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D843091BF68A420019A468 /* AppDelegate.swift */; };
@@ -99,6 +104,9 @@
 		B10EFB791CD3E62D00D6AFAD /* AnnotationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnnotationViewController.swift; sourceTree = "<group>"; };
 		B10EFB7B1CD4777800D6AFAD /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
 		B11029C31CC6D3DE00745166 /* LostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LostViewController.swift; sourceTree = "<group>"; };
+		B11184011D04EA580034936A /* DirectionsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DirectionsViewController.swift; sourceTree = "<group>"; };
+		B11184031D04F5540034936A /* NearbyBuildingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyBuildingsViewController.swift; sourceTree = "<group>"; };
+		B11184051D0502DB0034936A /* DogLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogLocationViewController.swift; sourceTree = "<group>"; };
 		B11374A31CDC1A45003BE4DE /* AddDogImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDogImage.swift; sourceTree = "<group>"; };
 		B11374A51CDC1A5B003BE4DE /* AddDogName.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDogName.swift; sourceTree = "<group>"; };
 		B11374A71CDC1A76003BE4DE /* AddDogCity.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDogCity.swift; sourceTree = "<group>"; };
@@ -110,6 +118,7 @@
 		B11551AD1CD688CB00AAA8BF /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		B11551AF1CD696D600AAA8BF /* TurorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurorialViewController.swift; sourceTree = "<group>"; };
 		B11551B11CD6C2A600AAA8BF /* dogsTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dogsTutorialViewController.swift; sourceTree = "<group>"; };
+		B11B814E1D07883F00FC89A3 /* ZHDropDownMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZHDropDownMenu.swift; path = "../../../../Downloads/DropDownMenu-master/ZHDropDownMenu-Demo/DropDownMenu-Demo/ZHDropDownMenu/ZHDropDownMenu.swift"; sourceTree = "<group>"; };
 		B122A0661C4DC374008FBF64 /* EditDogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDogViewController.swift; sourceTree = "<group>"; };
 		B1278F791CA4CB7300D27304 /* Setings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setings.swift; sourceTree = "<group>"; };
 		B129DBA61CEA5CC2009627D0 /* lostDog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lostDog.swift; sourceTree = "<group>"; };
@@ -125,6 +134,7 @@
 		B17D6A9F1C6517FF0080A09B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B1AB57BD1CCFB147003D2625 /* DogsLocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogsLocationInfo.swift; sourceTree = "<group>"; };
 		B1AB57BF1CD252A4003D2625 /* Bone Tie 3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Bone Tie 3.entitlements"; sourceTree = "<group>"; };
+		B1B52E071D049053009FA754 /* AddDogMixedBreed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDogMixedBreed.swift; sourceTree = "<group>"; };
 		B1D6E0F91CE3DEFF00F23A50 /* LookingForDogsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookingForDogsTableViewController.swift; sourceTree = "<group>"; };
 		B1D6E0FB1CE41DBB00F23A50 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B1D843061BF68A420019A468 /* Bone Tie 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bone Tie 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -262,6 +272,7 @@
 			isa = PBXGroup;
 			children = (
 				B1229BAB1CFFC39600EF37A1 /* Source */,
+				B11B814E1D07883F00FC89A3 /* ZHDropDownMenu.swift */,
 				B10EFB711CD3E4F300D6AFAD /* Spotlight.swift */,
 				B10EFB731CD3E4FA00D6AFAD /* SpotlightView.swift */,
 				B10EFB751CD3E50100D6AFAD /* SpotlightViewController.swift */,
@@ -282,6 +293,7 @@
 				B11374A51CDC1A5B003BE4DE /* AddDogName.swift */,
 				B11374A71CDC1A76003BE4DE /* AddDogCity.swift */,
 				B11374AB1CDC3D61003BE4DE /* AddDogBreed.swift */,
+				B1B52E071D049053009FA754 /* AddDogMixedBreed.swift */,
 				B11374AD1CDC3D9D003BE4DE /* AddDogBreedTableViewCell.swift */,
 				B11374A91CDC2DAF003BE4DE /* AddDogTableViewCell.swift */,
 				B11029C31CC6D3DE00745166 /* LostViewController.swift */,
@@ -295,6 +307,9 @@
 				B1D6E0F91CE3DEFF00F23A50 /* LookingForDogsTableViewController.swift */,
 				B10EFB7B1CD4777800D6AFAD /* SettingsTableViewCell.swift */,
 				B1AB57BD1CCFB147003D2625 /* DogsLocationInfo.swift */,
+				B11184011D04EA580034936A /* DirectionsViewController.swift */,
+				B11184031D04F5540034936A /* NearbyBuildingsViewController.swift */,
+				B11184051D0502DB0034936A /* DogLocationViewController.swift */,
 				B1E458F51CF3B36D0078571E /* LostInfoViewController.swift */,
 				B1E458F71CF3B72D0078571E /* LostDogInformationViewController.swift */,
 				B11551AB1CD5B07000AAA8BF /* AddReminders.swift */,
@@ -612,9 +627,12 @@
 			files = (
 				B1E458F81CF3B72D0078571E /* LostDogInformationViewController.swift in Sources */,
 				B1D8430E1BF68A420019A468 /* Map.swift in Sources */,
+				B11184061D0502DB0034936A /* DogLocationViewController.swift in Sources */,
 				B1FAF5EE1CBC6A1400E1FB7D /* Adafruit.io Api.swift in Sources */,
+				B1B52E081D049053009FA754 /* AddDogMixedBreed.swift in Sources */,
 				B122A0671C4DC374008FBF64 /* EditDogViewController.swift in Sources */,
 				B1278F7A1CA4CB7300D27304 /* Setings.swift in Sources */,
+				B11B81511D07883F00FC89A3 /* ZHDropDownMenu.swift in Sources */,
 				B11374A41CDC1A45003BE4DE /* AddDogImage.swift in Sources */,
 				B1D8433C1BF68E720019A468 /* Dogs.swift in Sources */,
 				B11374AA1CDC2DAF003BE4DE /* AddDogTableViewCell.swift in Sources */,
@@ -643,8 +661,10 @@
 				B129DBAB1CEA9317009627D0 /* FetchLost.swift in Sources */,
 				B15EE6901CB31A89002663A0 /* StickyCollectionViewFlowLayout.swift in Sources */,
 				B1AB57BE1CCFB147003D2625 /* DogsLocationInfo.swift in Sources */,
+				B11184041D04F5540034936A /* NearbyBuildingsViewController.swift in Sources */,
 				B11374AC1CDC3D61003BE4DE /* AddDogBreed.swift in Sources */,
 				B16D4F581C28B9C300780335 /* UIImageView+ImageViewer.swift in Sources */,
+				B11184021D04EA580034936A /* DirectionsViewController.swift in Sources */,
 				B11374AE1CDC3D9D003BE4DE /* AddDogBreedTableViewCell.swift in Sources */,
 				B151F9561CA0ACA200D5A349 /* SlideOutMenuTableViewController.swift in Sources */,
 				B1E2855F1CFCFED7008D4034 /* BTNavigationDropdownMenu.swift in Sources */,

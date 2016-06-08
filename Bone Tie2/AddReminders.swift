@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import Interpolate
 
 var type = "Food"
 var Medicine = ""
@@ -28,8 +29,14 @@ class AddReminders: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     var medName = UITextField()
     var done = UILabel()
     var colorView = UIView()
+    var foodColor: Interpolate?
     override func viewDidLoad() {
         super.viewDidLoad()
+        foodColor  = Interpolate(from: UIColor.orangeColor(),
+                          to: UIColor.blueColor(),
+                          apply: { (color) in
+                     self.button.titleLabel?.textColor = color
+            })
         self.alarm = Alarm(hour: 23, minute: 39, {
             debugPrint("Alarm Triggered!")
         })
@@ -80,7 +87,7 @@ class AddReminders: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         datePicker.addTarget(self, action: #selector(self.remindMe) , forControlEvents: UIControlEvents.ValueChanged)
         self.view.addSubview(datePicker)
         
-        button.frame = CGRectMake(0, 550, self.view.frame.width, 50)
+        button.frame = CGRectMake(0, 510, self.view.frame.width, 50)
         button.center = CGPoint(x: self.view.center.x, y: self.button.center.y)
         button.setTitle("Add Reminder", forState: .Normal)
         button.setTitle("Add Reminder", forState: .Selected)
@@ -126,18 +133,20 @@ class AddReminders: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
             let duration = 2.0
             let delay = 0.0
             let options = UIViewKeyframeAnimationOptions.CalculationModeLinear
-            self.datePicker.setValue(UIColor.blueColor(), forKeyPath: "textColor")
+            //self.datePicker.setValue(UIColor.blueColor(), forKeyPath: "textColor")
             self.datePicker.datePickerMode = .CountDownTimer
             self.datePicker.datePickerMode = .DateAndTime
+            foodColor?.animate(duration: 2.0)
             UIView.animateKeyframesWithDuration(duration, delay: delay, options: options,  animations: { () -> Void in
                 // each keyframe needs to be added here
                 // within each keyframe the relativeStartTime and relativeDuration need to be values between 0.0 and 1.0
-                UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 2, animations: { () -> Void in
+                UIView.addKeyframeWithRelativeStartTime(0, relativeDuration: 1, animations: { () -> Void in
                     self.imageView.alpha = 1.0
                     self.imageViews.alpha = 0.0
                     self.datePicker.frame = CGRectMake(0, 275, self.view.frame.width, 150)
-                    self.button.setTitleColor(UIColor.blueColor(), forState: .Normal)
-                    self.button.setTitleColor(UIColor.blueColor(), forState: .Selected)
+                    //self.button.setTitleColor(UIColor.blueColor(), forState: .Normal)
+                    //self.button.setTitleColor(UIColor.blueColor(), forState: .Selected)
+                    self.button.tintColor = UIColor.orangeColor()
                     self.medName.alpha = 0.0
                     self.colorView.alpha = 0.0
                     

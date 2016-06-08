@@ -6,6 +6,7 @@ use_frameworks!
 target 'Bone Tie 3' do
 pod 'HanekeSwift'
 pod 'Charts'
+pod 'Interpolate'
 end
 
 target 'Bone Tie 3Tests' do

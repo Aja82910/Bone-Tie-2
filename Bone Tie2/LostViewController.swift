@@ -79,7 +79,7 @@ class LostViewController: UIViewController, UIScrollViewDelegate, MKMapViewDeleg
         BTConfiguration().defaultValue()
         let arrow = arrowImagePaths
         print(arrow)
-        downArrowImage.image = UIImage(contentsOfFile: arrow!)!
+        downArrowImage.image = UIImage(named: "Down")/*UIImage(contentsOfFile: arrow!)!*/
         downArrowImage.image = downArrowImage.image!.imageWithRenderingMode(.AlwaysTemplate)
         down.frame = CGRect(x: 0, y: self.view.frame.height - 113, width: self.view.frame.width, height: 50)
         down.backgroundColor = UIColor.orangeColor()
@@ -373,7 +373,7 @@ class LostViewController: UIViewController, UIScrollViewDelegate, MKMapViewDeleg
        // }
     }
     func goDown() {
-        if scrollView.bounds.minY <= self.view.frame.height / 2 {
+        if scrollView.bounds.minY <= scrollView.frame.height / 2 - 25 {
             self.scrollView.scrollRectToVisible(CGRect(x: 0, y: self.view.frame.height - 50, width: self.view.frame.width, height: self.view.frame.height), animated: true)
             faceDircetion()
         } else {
@@ -689,6 +689,7 @@ class LostViewController: UIViewController, UIScrollViewDelegate, MKMapViewDeleg
     }
     func mapView(mapView: MKMapView, annotationView view: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
         if control == view.rightCalloutAccessoryView {
+            self.arrowImage.hidden = true
             performSegueWithIdentifier("DogsInfoLocation", sender: self)
         }
     }
@@ -700,6 +701,7 @@ overlay: MKOverlay) -> MKOverlayRenderer {
         renderer.lineWidth = 4.0
         return renderer
     }
+    var directions = String()
     func showRoute(response: MKDirectionsResponse) {
         for route in response.routes {
             mapView.addOverlay(route.polyline,
@@ -713,7 +715,7 @@ overlay: MKOverlay) -> MKOverlayRenderer {
         if Steps.text == nil {
             Steps.text = " "
         }
-
+        directions = steped
         Steps.font = UIFont(name: "Chalkduster", size: 20.5)
         Steps.adjustsFontSizeToFitWidth = true
         Steps.textAlignment = NSTextAlignment.Center
@@ -1178,12 +1180,13 @@ overlay: MKOverlay) -> MKOverlayRenderer {
         DestViewController.dogs = self.doggie
         }
         if segue.identifier == "DogsInfoLocation" {
-            let DestViewController = segue.destinationViewController as! DogsLocationInfo
+            let DestViewController = segue.destinationViewController as! DogLocationViewController
             DestViewController.dogs = self.doggie
-            DestViewController.TypeofDirections = self.directionsType.titleForSegmentAtIndex(self.directionsType.selectedSegmentIndex)!
+            DestViewController.directionsType = self.directionsType.titleForSegmentAtIndex(self.directionsType.selectedSegmentIndex)!
+            DestViewController.directions = self.directions
             if self.DisplayMinutes.text != "" {
-            let traveltimed = self.DisplayMinutes.text?.startIndex.advancedBy(13)
-            DestViewController.traveltimes = DisplayMinutes.text?.substringFromIndex(traveltimed!)
+                let traveltimed = self.DisplayMinutes.text?.startIndex.advancedBy(13)
+                DestViewController.directionTime = DisplayMinutes.text!.substringFromIndex(traveltimed!)
             }
         }
         if segue.identifier == "AddReminder" {
