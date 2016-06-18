@@ -14,7 +14,7 @@ var type = "Food"
 var Medicine = ""
 
 class AddReminders: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate/*, AVAudioPlayerDelegate*/ {
-    var DogName = ""
+    var dogs: dog?
     var alarm: Alarm!
     var soundEffect: AVAudioPlayer!
     let path = NSBundle.mainBundle().pathForResource("Dog Bark.mp3", ofType: nil)
@@ -32,11 +32,11 @@ class AddReminders: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
     var foodColor: Interpolate?
     override func viewDidLoad() {
         super.viewDidLoad()
-        foodColor  = Interpolate(from: UIColor.orangeColor(),
+        /*foodColor  = Interpolate(from: UIColor.orangeColor(),
                           to: UIColor.blueColor(),
                           apply: { (color) in
                      self.button.titleLabel?.textColor = color
-            })
+            })*/
         self.alarm = Alarm(hour: 23, minute: 39, {
             debugPrint("Alarm Triggered!")
         })
@@ -133,10 +133,11 @@ class AddReminders: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
             let duration = 2.0
             let delay = 0.0
             let options = UIViewKeyframeAnimationOptions.CalculationModeLinear
-            //self.datePicker.setValue(UIColor.blueColor(), forKeyPath: "textColor")
-            self.datePicker.datePickerMode = .CountDownTimer
-            self.datePicker.datePickerMode = .DateAndTime
-            foodColor?.animate(duration: 2.0)
+            //foodColor?.animate(duration: 2.0)
+            UIView.transitionWithView(self.button, duration: 2.0, options: .AllowAnimatedContent, animations: {
+                self.button.setTitleColor(UIColor.blueColor(), forState: .Normal)
+                self.datePicker.setValue(UIColor.blueColor(), forKeyPath: "textColor")
+                }, completion: nil)
             UIView.animateKeyframesWithDuration(duration, delay: delay, options: options,  animations: { () -> Void in
                 // each keyframe needs to be added here
                 // within each keyframe the relativeStartTime and relativeDuration need to be values between 0.0 and 1.0
@@ -149,11 +150,13 @@ class AddReminders: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
                     self.button.tintColor = UIColor.orangeColor()
                     self.medName.alpha = 0.0
                     self.colorView.alpha = 0.0
+                    print("in")
                     
                     
                 })
                 }, completion: { finshed in
-                    
+                    self.datePicker.datePickerMode = .CountDownTimer
+                    self.datePicker.datePickerMode = .DateAndTime
             })
             type = "Food"
             view.bringSubviewToFront(ReminderType)
@@ -230,8 +233,8 @@ class AddReminders: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
         if self.alarm.isOn  {
             let userInfo = ["url": "www.mobiwise.co"]
             if ReminderType.selectedRowInComponent(0) == 0 {
-                let message = "Don't forget to feed \(DogName)"
-                LocalNotificationHelper.sharedInstance().scheduleNotificationWithKey("mobiwise", title: "Food", message: message, seconds: secondsFromNow, userInfo: userInfo)
+                let message = "Don't forget to feed \(dogs?.name)"
+                LocalNotificationHelper.sharedInstance().scheduleNotificationWithKey("mobiwise", title: "Food", message: message, seconds: secondsFromNow, userInfo: userInfo, theDog: dogs!)
                 NSTimer.scheduledTimerWithTimeInterval(secondsFromNow, target: self, selector: Selector(self.notification(message)), userInfo: nil, repeats: false)
                 let url = NSURL(fileURLWithPath: path!)
                 do {
@@ -266,8 +269,8 @@ class AddReminders: UIViewController, UIPickerViewDataSource, UIPickerViewDelega
                 else {
                     Medicine = medName.text!
                 }
-                let message = "Don't forget to give \(Medicine) to \(DogName)"
-                LocalNotificationHelper.sharedInstance().scheduleNotificationWithKey("mobiwise", title: "Medicine", message: message, seconds: secondsFromNow, userInfo: userInfo)
+                let message = "Don't forget to give \(Medicine) to \(dogs?.name)"
+                LocalNotificationHelper.sharedInstance().scheduleNotificationWithKey("mobiwise", title: "Medicine", message: message, seconds: secondsFromNow, userInfo: userInfo, theDog: dogs!)
                 NSTimer.scheduledTimerWithTimeInterval(secondsFromNow, target: self, selector: Selector(self.notification(message)), userInfo: nil, repeats: false)
                 let url = NSURL(fileURLWithPath: path!)
                 do {

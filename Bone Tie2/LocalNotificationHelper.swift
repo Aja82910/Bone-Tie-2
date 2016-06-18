@@ -28,6 +28,92 @@ class LocalNotificationHelper: NSObject {
     
     // MARK: - Schedule Notification
     
+    func scheduleNotificationWithKey(key: String, title: String, message: String, seconds: Double, userInfo: [NSObject: AnyObject]?, CalendarUnit: NSCalendarUnit) {
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
+        let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: userInfo, soundName: nil, hasAction: true)
+        notification.category = LOCAL_NOTIFICATION_CATEGORY
+        notification.soundName = "Dog Bark.mp3"
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    func scheduleNotificationWithKey(key: String, title: String, message: String, seconds: Double, userInfo: [NSObject: AnyObject]?, soundName: String, CalendarUnit: NSCalendarUnit) {
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
+        let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: userInfo, soundName: nil, hasAction: true)
+        notification.category = LOCAL_NOTIFICATION_CATEGORY
+        notification.soundName = soundName
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    func scheduleNotificationWithKey(key: String, title: String, message: String, seconds: Double, userInfo: [NSObject: AnyObject]?, theDog: dog, CalendarUnit: NSCalendarUnit) {
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
+        let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: userInfo, soundName: nil, hasAction: true)
+        notification.category = LOCAL_NOTIFICATION_CATEGORY
+        if let sound = theDog.sound {
+            notification.soundName = String(sound)
+        } else {
+            notification.soundName = UILocalNotificationDefaultSoundName
+        }
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    func scheduleNotificationWithKey(key: String, title: String, message: String, seconds: Double, userInfo: [NSObject: AnyObject]?, dates: [NSDate]) {
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
+        let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: userInfo, soundName: nil, hasAction: true)
+        notification.category = LOCAL_NOTIFICATION_CATEGORY
+        notification.soundName = "Dog Bark.mp3"
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    func scheduleNotificationWithKey(key: String, title: String, message: String, seconds: Double, userInfo: [NSObject: AnyObject]?, soundName: String, dates: [NSDate]) {
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
+        let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: userInfo, soundName: nil, hasAction: true)
+        notification.category = LOCAL_NOTIFICATION_CATEGORY
+        notification.soundName = soundName
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    func scheduleNotificationWithKey(key: String, title: String, message: String, seconds: Double, userInfo: [NSObject: AnyObject]?, theDog: dog, dates: [NSDate]) {
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
+        let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: userInfo, soundName: nil, hasAction: true)
+        notification.category = LOCAL_NOTIFICATION_CATEGORY
+        if let sound = theDog.sound {
+            notification.soundName = String(sound)
+        } else {
+            notification.soundName = UILocalNotificationDefaultSoundName
+        }
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+        for reminderDate in dates {
+            let FutureDate = NSDate(timeIntervalSinceNow: reminderDate.timeIntervalSinceNow)
+            let FutureNotification = notificationWithTitle(key, title: title, message: message, date: FutureDate, userInfo: userInfo, soundName: nil, hasAction: true)
+            FutureNotification.category = LOCAL_NOTIFICATION_CATEGORY
+            if let sound = theDog.sound {
+                FutureNotification.soundName = String(sound)
+            } else {
+                FutureNotification.soundName = UILocalNotificationDefaultSoundName
+            }
+            UIApplication.sharedApplication().scheduleLocalNotification(FutureNotification)
+        }
+    }
+    func scheduleNotificationWithKey(key: String, title: String, message: String, seconds: Double, userInfo: [NSObject: AnyObject]?, Weekdays: [String]) {
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
+        let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: userInfo, soundName: nil, hasAction: true)
+        notification.category = LOCAL_NOTIFICATION_CATEGORY
+        notification.soundName = "Dog Bark.mp3"
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    func scheduleNotificationWithKey(key: String, title: String, message: String, seconds: Double, userInfo: [NSObject: AnyObject]?, soundName: String, Weekdays: [String]) {
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
+        let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: userInfo, soundName: nil, hasAction: true)
+        notification.category = LOCAL_NOTIFICATION_CATEGORY
+        notification.soundName = soundName
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    func scheduleNotificationWithKey(key: String, title: String, message: String, seconds: Double, userInfo: [NSObject: AnyObject]?, theDog: dog, Weekdays: [String]) {
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
+        let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: userInfo, soundName: nil, hasAction: true)
+        notification.category = LOCAL_NOTIFICATION_CATEGORY
+        if let sound = theDog.sound {
+            notification.soundName = String(sound)
+        } else {
+            notification.soundName = UILocalNotificationDefaultSoundName
+        }
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
     func scheduleNotificationWithKey(key: String, title: String, message: String, seconds: Double, userInfo: [NSObject: AnyObject]?) {
         let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
         let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: userInfo, soundName: nil, hasAction: true)
@@ -35,7 +121,24 @@ class LocalNotificationHelper: NSObject {
         notification.soundName = "Dog Bark.mp3"
         UIApplication.sharedApplication().scheduleLocalNotification(notification)
     }
-    
+    func scheduleNotificationWithKey(key: String, title: String, message: String, seconds: Double, userInfo: [NSObject: AnyObject]?, soundName: String) {
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
+        let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: userInfo, soundName: nil, hasAction: true)
+        notification.category = LOCAL_NOTIFICATION_CATEGORY
+        notification.soundName = soundName
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
+    func scheduleNotificationWithKey(key: String, title: String, message: String, seconds: Double, userInfo: [NSObject: AnyObject]?, theDog: dog) {
+        let date = NSDate(timeIntervalSinceNow: NSTimeInterval(seconds))
+        let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: userInfo, soundName: nil, hasAction: true)
+        notification.category = LOCAL_NOTIFICATION_CATEGORY
+        if let sound = theDog.sound {
+            notification.soundName = String(sound)
+        } else {
+            notification.soundName = UILocalNotificationDefaultSoundName
+        }
+        UIApplication.sharedApplication().scheduleLocalNotification(notification)
+    }
     func scheduleNotificationWithKey(key: String, title: String, message: String, date: NSDate, userInfo: [NSObject: AnyObject]?){
         let notification = notificationWithTitle(key, title: title, message: message, date: date, userInfo: ["key": key], soundName: nil, hasAction: true)
         notification.category = LOCAL_NOTIFICATION_CATEGORY

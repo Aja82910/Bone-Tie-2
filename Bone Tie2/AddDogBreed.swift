@@ -43,8 +43,7 @@ class AddDogBreed: UITableViewController, UISearchControllerDelegate, UISearchRe
         return cell
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cells", forIndexPath: indexPath) as! AddDogBreedTableViewCell
-        if cell.DogBreed.text != "Mixed Breed" {
+        if filtered[indexPath.row] != "Mixed Breed" {
             AddDogBreed = filtered[indexPath.row]
             performSegueWithIdentifier("AddDogCity", sender: self)
         } else {

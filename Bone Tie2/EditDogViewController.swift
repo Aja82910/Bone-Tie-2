@@ -113,7 +113,7 @@ class EditDogViewController: UIViewController, UIImagePickerControllerDelegate, 
             let date = dogs?.date
             let selected = Categories.selectedRowInComponent(0)
             let breed = pickerData[selected]
-            dogs = dog(name: name, photo: photo, date: date!, breed: breed, trackerNumber: self.EditTrackerNumber.text!, city: "City", color:  dogs!.color)
+            dogs = dog(name: name, photo: photo, date: date!, breed: breed, trackerNumber: self.EditTrackerNumber.text!, city: "City", color:  dogs!.color, sound: dogs!.sound)
         }
     }
     func photoLibrary (alertAction: UIAlertAction!) {

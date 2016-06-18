@@ -52,6 +52,8 @@ class Setings: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     @IBAction func DeletingDog(sender: AnyObject) {
+        print(dogs?.name)
+        print(dogs)
         confirmDelete(dogs!.name)
     }
     func confirmDelete(Dog: String) {
@@ -72,6 +74,9 @@ class Setings: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // ...
     
     func handleDeleteDog(alertAction: UIAlertAction!) -> Void {
+        if MyLostDogs.indexOf(dogs!) != nil {
+            foundDog(dogs)
+        }
             let doggied = dogs
             let dogID = CKRecordID(recordName: doggied!.name)
             let newRecord = CKRecord(recordType: "Dogs", recordID: dogID)
@@ -80,10 +85,8 @@ class Setings: UIViewController, UITableViewDelegate, UITableViewDataSource {
                 newRecord.setObject(imageAsset, forKey: "Photo")
             }
             newRecord.setObject(doggied!.name, forKey: "Name")
-            if let myLostDog = MyLostDogs.indexOf(doggied!) {
                 privateDatabase?.deleteRecordWithID(CKRecordID(recordName: doggied!.name + doggied!.trackerNumber) , completionHandler: { (Record, Error) in
                     if Error == nil {
-                        MyLostDogs.removeAtIndex(myLostDog)
                         repeat {
                             self.publicDatabase?.deleteRecordWithID(newRecord.recordID, completionHandler: ({
                             returnRecord, error in
@@ -104,12 +107,11 @@ class Setings: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                 }
                             }))
                         } while Error != nil
-
-                    } else {
+                    }
+                    else {
                         return
                     }
                 })
-            }
             /*
             // Note that indexPath is wrapped in an array:  [indexPath]
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
@@ -122,7 +124,27 @@ class Setings: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         }
     
-    
+    func foundDog(theDog: dog?) {
+        let LostFound = Api().Found()
+        NSTimer.scheduledTimerWithTimeInterval(3, target: Api(), selector: #selector(Api.Found), userInfo: nil, repeats: !LostFound)
+        if let index = MyLostDogs.indexOf(theDog!) {
+            MyLostDogs.removeAtIndex(index)
+        }
+        publicDatabase?.deleteRecordWithID(CKRecordID(recordName: theDog!.name + theDog!.breed + theDog!.city), completionHandler: ({returnRecord, error in
+            if let err = error {
+                dispatch_async(dispatch_get_main_queue()) {
+                    //self.notifyUser("Save Error", message: err.localizedDescription)
+                    print(err.localizedDescription)
+                }
+            } else {
+                dispatch_async(dispatch_get_main_queue()) {
+                    //self.notifyUser("Success!", message: "Record saved successfully.")
+                    print("Record Saved")
+                }
+            }
+        }))
+    }
+
     func cancelDeleteDog(alertAction: UIAlertAction!) {
     }
 func notifyUser(title: String, message: String) -> Void

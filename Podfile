@@ -7,6 +7,7 @@ target 'Bone Tie 3' do
 pod 'HanekeSwift'
 pod 'Charts'
 pod 'Interpolate'
+pod 'EPCalendarPicker'
 end
 
 target 'Bone Tie 3Tests' do

@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>EPCalendarPicker.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>HanekeSwift.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -37,12 +42,22 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>113F7D61BD90DBDEE1D3EB72C6694E99</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>18F9F808E72AA4A3A6E6F4633D826346</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>2C2B1953A91633859BF7AD238FF567A0</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>3F4ED3136065D01037865D960C84E133</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -58,11 +73,6 @@
 			<true/>
 		</dict>
 		<key>C6828C2508515BC0428D6BDAA1292DC9</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>EB289DF1188B795499E1A36445988E62</key>
 		<dict>
 			<key>primary</key>
 			<true/>

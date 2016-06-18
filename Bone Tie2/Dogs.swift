@@ -222,7 +222,8 @@ class Dogs: UITableViewController {
     
     func loadSampleDogs () {
         let Dog1 = UIImage(named: "Nimble")!
-        let Dog = dog(name: "Nimble", photo: Dog1, date: NSDate(), breed: "Labrador Retriever", trackerNumber: "Sw8w5u2", city: "city", color:  "Red")!
+        let sound = NSURL(fileReferenceLiteral: "Dog Bark.mp3")
+        let Dog = dog(name: "Nimble", photo: Dog1, date: NSDate(), breed: "Labrador Retriever", trackerNumber: "Sw8w5u2", city: "city", color:  "Red", sound: sound)!
         dogs += [Dog]
     }
 }

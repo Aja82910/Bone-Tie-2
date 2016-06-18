@@ -18,6 +18,7 @@ class AddDogImage: UIViewController, UIImagePickerControllerDelegate, UINavigati
     var AddDogBreed = String()
     var AddDogColor = String()
     var AddDogImage: UIImage?
+    var AddDogSound: NSURL?
     var dogs: dog?
     let container = CKContainer.defaultContainer()
     var publicDatabase: CKDatabase?
@@ -77,7 +78,7 @@ class AddDogImage: UIViewController, UIImagePickerControllerDelegate, UINavigati
         let date = NSDate()
         pictures.append(photo!)
         text.append(AddDogName)
-        if let doggies = dog(name: AddDogName, photo: photo, date: date, breed: AddDogBreed, trackerNumber: AddDogCode, city: AddDogCity, color:  AddDogColor) {
+        if let doggies = dog(name: AddDogName, photo: photo, date: date, breed: AddDogBreed, trackerNumber: AddDogCode, city: AddDogCity, color:  AddDogColor, sound:  AddDogSound) {
                 self.performSegueWithIdentifier("Connected", sender: self)
                 dogs = doggies
             }
@@ -97,7 +98,8 @@ class AddDogImage: UIViewController, UIImagePickerControllerDelegate, UINavigati
             let date = NSDate()
             pictures.append(photo!)
             text.append(AddDogName)
-            dogs = dog(name: AddDogName, photo: photo, date: date, breed: AddDogBreed, trackerNumber: AddDogCode, city: AddDogCity, color: AddDogColor)
+            dogs = dog(name: AddDogName, photo: photo, date: date, breed: AddDogBreed, trackerNumber: AddDogCode, city: AddDogCity, color: AddDogColor, sound: AddDogSound)
+            saveDogs()
             let dogID = CKRecordID(recordName: AddDogName + AddDogCode)
             let newRecord = CKRecord(recordType: "Dogs", recordID: dogID)
             if AddDogImage == nil {
@@ -220,6 +222,10 @@ class AddDogImage: UIViewController, UIImagePickerControllerDelegate, UINavigati
     
         return NSURL.fileURLWithPath(filePath)
     }
-
+    func saveDogs() {
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(dogs!, toFile: dog.archiveURL!.path!)
+        if !isSuccessfulSave {
+        }
+    }
 
 }

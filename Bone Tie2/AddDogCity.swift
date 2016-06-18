@@ -54,7 +54,7 @@ class AddDogCity: UITableViewController, UISearchControllerDelegate, UISearchRes
     }
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         AddDogCity = cityLabel[indexPath.row]
-        performSegueWithIdentifier("AddDogImage", sender: self)
+        performSegueWithIdentifier("AddDogSound", sender: self)
     }
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -178,7 +178,7 @@ class AddDogCity: UITableViewController, UISearchControllerDelegate, UISearchRes
     
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        let DestViewController = segue.destinationViewController as! AddDogImage
+        let DestViewController = segue.destinationViewController as! RecordViewController
         DestViewController.AddDogCode = AddDogCode
         DestViewController.AddDogName = AddDogName
         DestViewController.AddDogBreed = AddDogBreed

@@ -79,7 +79,7 @@ class LostViewController: UIViewController, UIScrollViewDelegate, MKMapViewDeleg
         BTConfiguration().defaultValue()
         let arrow = arrowImagePaths
         print(arrow)
-        downArrowImage.image = UIImage(named: "Down")/*UIImage(contentsOfFile: arrow!)!*/
+        downArrowImage.image = UIImage(contentsOfFile: arrow!)!
         downArrowImage.image = downArrowImage.image!.imageWithRenderingMode(.AlwaysTemplate)
         down.frame = CGRect(x: 0, y: self.view.frame.height - 113, width: self.view.frame.width, height: 50)
         down.backgroundColor = UIColor.orangeColor()
@@ -89,8 +89,10 @@ class LostViewController: UIViewController, UIScrollViewDelegate, MKMapViewDeleg
         downBlur.frame = down.frame
         downArrowImage.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
         downArrowImage.center = CGPoint(x: self.down.frame.width / 2, y: self.down.frame.height / 2)
-        arrowImage.setImage(downArrowImage.image, forState: .Selected)
-        arrowImage.setImage(downArrowImage.image, forState: .Normal)
+        var downArrow = UIImage(named: "Down")
+        downArrow = downArrow!.imageWithRenderingMode(.AlwaysTemplate)
+        arrowImage.setImage(downArrow, forState: .Selected)
+        arrowImage.setImage(downArrow, forState: .Normal)
         arrowImage.frame = CGRect(x: self.navigationController!.navigationBar.frame.width - 40, y: 0, width: 30, height: 30)
         arrowImage.center = CGPoint(x: self.arrowImage.center.x, y: self.navigationController!.navigationBar.frame.minY)
         arrowImage.tintColor = self.view.tintColor
@@ -1175,9 +1177,11 @@ overlay: MKOverlay) -> MKOverlayRenderer {
         scrollView.contentInset = UIEdgeInsets(top: verticalPadding, left: horizontalPadding, bottom: verticalPadding, right: horizontalPadding)
     }*/
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "Settings" {
-        let DestViewController = segue.destinationViewController as! Setings
-        DestViewController.dogs = self.doggie
+        print(segue.identifier)
+        if segue.identifier == "Setting" {
+            let DestViewController = segue.destinationViewController as! Setings
+            DestViewController.dogs = self.doggie
+            print(DestViewController.dogs?.name)
         }
         if segue.identifier == "DogsInfoLocation" {
             let DestViewController = segue.destinationViewController as! DogLocationViewController
@@ -1191,7 +1195,7 @@ overlay: MKOverlay) -> MKOverlayRenderer {
         }
         if segue.identifier == "AddReminder" {
             let DestViewController = segue.destinationViewController as! AddReminders
-            DestViewController.DogName = self.doggie!.name
+            DestViewController.dogs = self.doggie!
         }
     }
     func loadDogs() -> [dog]? {

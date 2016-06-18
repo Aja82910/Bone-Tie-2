@@ -36,6 +36,8 @@
 		B11551B01CD696D600AAA8BF /* TurorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11551AF1CD696D600AAA8BF /* TurorialViewController.swift */; };
 		B11551B21CD6C2A600AAA8BF /* dogsTutorialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11551B11CD6C2A600AAA8BF /* dogsTutorialViewController.swift */; };
 		B11B81511D07883F00FC89A3 /* ZHDropDownMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B814E1D07883F00FC89A3 /* ZHDropDownMenu.swift */; };
+		B11B81571D08FF7000FC89A3 /* RecordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B81561D08FF7000FC89A3 /* RecordViewController.swift */; };
+		B11B81591D0A4B8A00FC89A3 /* SampleSoundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B11B81581D0A4B8A00FC89A3 /* SampleSoundsViewController.swift */; };
 		B122A0671C4DC374008FBF64 /* EditDogViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B122A0661C4DC374008FBF64 /* EditDogViewController.swift */; };
 		B1278F7A1CA4CB7300D27304 /* Setings.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1278F791CA4CB7300D27304 /* Setings.swift */; };
 		B129DBA71CEA5CC2009627D0 /* lostDog.swift in Sources */ = {isa = PBXBuildFile; fileRef = B129DBA61CEA5CC2009627D0 /* lostDog.swift */; };
@@ -49,6 +51,7 @@
 		B17D6AA01C6517FF0080A09B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B17D6A9E1C6517FF0080A09B /* Main.storyboard */; };
 		B1AB57BE1CCFB147003D2625 /* DogsLocationInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1AB57BD1CCFB147003D2625 /* DogsLocationInfo.swift */; };
 		B1B52E081D049053009FA754 /* AddDogMixedBreed.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1B52E071D049053009FA754 /* AddDogMixedBreed.swift */; };
+		B1CEA92E1D10E9A9007AB93A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1CEA92D1D10E9A9007AB93A /* AudioToolbox.framework */; };
 		B1D6E0FA1CE3DEFF00F23A50 /* LookingForDogsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D6E0F91CE3DEFF00F23A50 /* LookingForDogsTableViewController.swift */; };
 		B1D6E0FC1CE41DBB00F23A50 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B1D6E0FB1CE41DBB00F23A50 /* MapKit.framework */; };
 		B1D8430A1BF68A420019A468 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B1D843091BF68A420019A468 /* AppDelegate.swift */; };
@@ -119,6 +122,8 @@
 		B11551AF1CD696D600AAA8BF /* TurorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TurorialViewController.swift; sourceTree = "<group>"; };
 		B11551B11CD6C2A600AAA8BF /* dogsTutorialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dogsTutorialViewController.swift; sourceTree = "<group>"; };
 		B11B814E1D07883F00FC89A3 /* ZHDropDownMenu.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ZHDropDownMenu.swift; path = "../../../../Downloads/DropDownMenu-master/ZHDropDownMenu-Demo/DropDownMenu-Demo/ZHDropDownMenu/ZHDropDownMenu.swift"; sourceTree = "<group>"; };
+		B11B81561D08FF7000FC89A3 /* RecordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecordViewController.swift; sourceTree = "<group>"; };
+		B11B81581D0A4B8A00FC89A3 /* SampleSoundsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SampleSoundsViewController.swift; sourceTree = "<group>"; };
 		B122A0661C4DC374008FBF64 /* EditDogViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditDogViewController.swift; sourceTree = "<group>"; };
 		B1278F791CA4CB7300D27304 /* Setings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Setings.swift; sourceTree = "<group>"; };
 		B129DBA61CEA5CC2009627D0 /* lostDog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = lostDog.swift; sourceTree = "<group>"; };
@@ -135,6 +140,7 @@
 		B1AB57BD1CCFB147003D2625 /* DogsLocationInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DogsLocationInfo.swift; sourceTree = "<group>"; };
 		B1AB57BF1CD252A4003D2625 /* Bone Tie 3.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = "Bone Tie 3.entitlements"; sourceTree = "<group>"; };
 		B1B52E071D049053009FA754 /* AddDogMixedBreed.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddDogMixedBreed.swift; sourceTree = "<group>"; };
+		B1CEA92D1D10E9A9007AB93A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		B1D6E0F91CE3DEFF00F23A50 /* LookingForDogsTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LookingForDogsTableViewController.swift; sourceTree = "<group>"; };
 		B1D6E0FB1CE41DBB00F23A50 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		B1D843061BF68A420019A468 /* Bone Tie 3.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Bone Tie 3.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -171,6 +177,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B1CEA92E1D10E9A9007AB93A /* AudioToolbox.framework in Frameworks */,
 				B129DBA91CEA7FC6009627D0 /* AVFoundation.framework in Frameworks */,
 				B1D6E0FC1CE41DBB00F23A50 /* MapKit.framework in Frameworks */,
 				B10ABCEF1C60230600D66185 /* CloudKit.framework in Frameworks */,
@@ -200,6 +207,7 @@
 		22A33738320C9351EE511D09 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				B1CEA92D1D10E9A9007AB93A /* AudioToolbox.framework */,
 				B129DBA81CEA7FC6009627D0 /* AVFoundation.framework */,
 				B1D6E0FB1CE41DBB00F23A50 /* MapKit.framework */,
 				B10ABCEE1C60230600D66185 /* CloudKit.framework */,
@@ -296,6 +304,8 @@
 				B1B52E071D049053009FA754 /* AddDogMixedBreed.swift */,
 				B11374AD1CDC3D9D003BE4DE /* AddDogBreedTableViewCell.swift */,
 				B11374A91CDC2DAF003BE4DE /* AddDogTableViewCell.swift */,
+				B11B81561D08FF7000FC89A3 /* RecordViewController.swift */,
+				B11B81581D0A4B8A00FC89A3 /* SampleSoundsViewController.swift */,
 				B11029C31CC6D3DE00745166 /* LostViewController.swift */,
 				B1D8430D1BF68A420019A468 /* Map.swift */,
 				B1FAF5ED1CBC6A1400E1FB7D /* Adafruit.io Api.swift */,
@@ -628,10 +638,12 @@
 				B1E458F81CF3B72D0078571E /* LostDogInformationViewController.swift in Sources */,
 				B1D8430E1BF68A420019A468 /* Map.swift in Sources */,
 				B11184061D0502DB0034936A /* DogLocationViewController.swift in Sources */,
+				B11B81571D08FF7000FC89A3 /* RecordViewController.swift in Sources */,
 				B1FAF5EE1CBC6A1400E1FB7D /* Adafruit.io Api.swift in Sources */,
 				B1B52E081D049053009FA754 /* AddDogMixedBreed.swift in Sources */,
 				B122A0671C4DC374008FBF64 /* EditDogViewController.swift in Sources */,
 				B1278F7A1CA4CB7300D27304 /* Setings.swift in Sources */,
+				B11B81591D0A4B8A00FC89A3 /* SampleSoundsViewController.swift in Sources */,
 				B11B81511D07883F00FC89A3 /* ZHDropDownMenu.swift in Sources */,
 				B11374A41CDC1A45003BE4DE /* AddDogImage.swift in Sources */,
 				B1D8433C1BF68E720019A468 /* Dogs.swift in Sources */,
