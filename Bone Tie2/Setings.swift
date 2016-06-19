@@ -10,7 +10,7 @@ import UIKit
 import CloudKit
 
 class Setings: UIViewController, UITableViewDelegate, UITableViewDataSource {
-    var dogs: dog?
+    var deletedDog: dog?
     let container = CKContainer.defaultContainer()
     var publicDatabase: CKDatabase?
     var privateDatabase: CKDatabase?
@@ -19,13 +19,13 @@ class Setings: UIViewController, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var FoundButton: UIButton!
     @IBOutlet weak var LostButton: UIButton!
-    var doggies = [dog]()
+    var dogs = [dog]()
     
     override func viewDidLoad() {
         publicDatabase = container.publicCloudDatabase
         privateDatabase = container.privateCloudDatabase
         if let savedDogs = loadDogs() {
-            doggies += savedDogs
+            dogs += savedDogs
         }
 
         tableView.delegate = self
@@ -52,9 +52,9 @@ class Setings: UIViewController, UITableViewDelegate, UITableViewDataSource {
         return cell
     }
     @IBAction func DeletingDog(sender: AnyObject) {
-        print(dogs?.name)
-        print(dogs)
-        confirmDelete(dogs!.name)
+        print(deletedDog?.name)
+        print(deletedDog)
+        confirmDelete(deletedDog!.name)
     }
     func confirmDelete(Dog: String) {
         let alert = UIAlertController(title: "Delete Dog", message: "Are you sure you want to permanently delete \(Dog)?", preferredStyle: .ActionSheet)
@@ -74,18 +74,18 @@ class Setings: UIViewController, UITableViewDelegate, UITableViewDataSource {
     // ...
     
     func handleDeleteDog(alertAction: UIAlertAction!) -> Void {
-        if MyLostDogs.indexOf(dogs!) != nil {
-            foundDog(dogs)
+        if MyLostDogs.indexOf(deletedDog!) != nil {
+            foundDog(deletedDog)
         }
-            let doggied = dogs
-            let dogID = CKRecordID(recordName: doggied!.name)
-            let newRecord = CKRecord(recordType: "Dogs", recordID: dogID)
+            let myDeletedDog = deletedDog
+            let dogID = CKRecordID(recordName: myDeletedDog!.name)
+            let newRecord = CKRecord(recordType: "deletedDog", recordID: dogID)
             if let url = photoURL {
                 let imageAsset = CKAsset(fileURL: url)
                 newRecord.setObject(imageAsset, forKey: "Photo")
             }
-            newRecord.setObject(doggied!.name, forKey: "Name")
-                privateDatabase?.deleteRecordWithID(CKRecordID(recordName: doggied!.name + doggied!.trackerNumber) , completionHandler: { (Record, Error) in
+            newRecord.setObject(myDeletedDog!.name, forKey: "Name")
+                privateDatabase?.deleteRecordWithID(CKRecordID(recordName: myDeletedDog!.name + myDeletedDog!.trackerNumber) , completionHandler: { (Record, Error) in
                     if Error == nil {
                         repeat {
                             self.publicDatabase?.deleteRecordWithID(newRecord.recordID, completionHandler: ({
@@ -101,9 +101,9 @@ class Setings: UIViewController, UITableViewDelegate, UITableViewDataSource {
                                         print("Record Deleted")
                                     }
                                     self.currentRecord = newRecord
-                                    if let savedDogs = self.loadDogs() {
-                                        self.doggies += savedDogs
-                                    }
+                                    
+                                    self.removeDogsWithID(myDeletedDog!.id)
+                                    self.saveDogs()
                                 }
                             }))
                         } while Error != nil
@@ -123,8 +123,22 @@ class Setings: UIViewController, UITableViewDelegate, UITableViewDataSource {
         
         
         }
-    
-    func foundDog(theDog: dog?) {
+    func removeDogsWithID(id: Int) {
+        if let savedDogs = self.loadDogs() {
+            self.dogs += savedDogs
+        }
+        var indexes = [Int]()
+        for index in 1...dogs.count {
+            if dogs[index - 1].id == id {
+                indexes.append(index - 1)
+            }
+        }
+        indexes = indexes.reverse()
+        for deleteIndex in indexes {
+            dogs.removeAtIndex(deleteIndex)
+        }
+    }
+     func foundDog(theDog: dog?) {
         let LostFound = Api().Found()
         NSTimer.scheduledTimerWithTimeInterval(3, target: Api(), selector: #selector(Api.Found), userInfo: nil, repeats: !LostFound)
         if let index = MyLostDogs.indexOf(theDog!) {
@@ -176,10 +190,10 @@ func saveImageToFile(image: UIImage) -> NSURL
     return NSURL.fileURLWithPath(filePath)
 }
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "Dogs" {
+        if segue.identifier == "deletedDog" {
             let DestViewController = segue.destinationViewController as! UINavigationController
             let targetController = DestViewController.topViewController as! EditDogViewController
-            let video = dogs
+            let video = deletedDog
             targetController.dogs = video
         }
 
@@ -188,9 +202,9 @@ func saveImageToFile(image: UIImage) -> NSURL
     if let sourceViewControllered = sender.sourceViewController as? EditDogViewController, pupies = sourceViewControllered.dogs {
             let dogID = CKRecordID(recordName: pupies.name)
             photoURL = saveImageToFile(pupies.photo!)
-            doggies[0] = pupies
-            dogs = pupies
-            self.navigationItem.title = dogs?.name
+            dogs[0] = pupies
+            deletedDog = pupies
+            self.navigationItem.title = deletedDog?.name
             publicDatabase?.fetchRecordWithID(dogID, completionHandler: { (record, error) in
                 if error != nil {
                     print("Error fetching record: \(error!.localizedDescription)")
@@ -233,8 +247,8 @@ func saveImageToFile(image: UIImage) -> NSURL
         lost = "No"
         let LostFound = Api().Found()
         NSTimer.scheduledTimerWithTimeInterval(3, target: Api(), selector: #selector(Api.Found), userInfo: nil, repeats: !LostFound)
-        MyLostDogs.removeAtIndex(MyLostDogs.indexOf(dogs!)!)
-        publicDatabase?.deleteRecordWithID(CKRecordID(recordName: dogs!.name + dogs!.breed + dogs!.city), completionHandler: ({returnRecord, error in
+        MyLostDogs.removeAtIndex(MyLostDogs.indexOf(deletedDog!)!)
+        publicDatabase?.deleteRecordWithID(CKRecordID(recordName: deletedDog!.name + deletedDog!.breed + deletedDog!.city), completionHandler: ({returnRecord, error in
             if let err = error {
                 dispatch_async(dispatch_get_main_queue()) {
                     //self.notifyUser("Save Error", message: err.localizedDescription)
@@ -253,10 +267,10 @@ func saveImageToFile(image: UIImage) -> NSURL
         let LostModes = Api().LostMode()
         NSTimer.scheduledTimerWithTimeInterval(3, target: Api(), selector: #selector(Api.LostMode), userInfo: nil, repeats: !LostModes)
         NSTimer.scheduledTimerWithTimeInterval(3, target: Api(), selector: #selector(Api.retrieveWeatherForecast), userInfo: nil, repeats: lost == "Yes")
-        MyLostDogs.append(dogs!)
-        let dogID = CKRecordID(recordName: dogs!.name + dogs!.breed + dogs!.city)
+        MyLostDogs.append(deletedDog!)
+        let dogID = CKRecordID(recordName: deletedDog!.name + deletedDog!.breed + deletedDog!.city)
         let newRecord = CKRecord(recordType: "Lost", recordID: dogID)
-        let photo = saveImageToFile(dogs!.photo!)
+        let photo = saveImageToFile(deletedDog!.photo!)
         newRecord.setObject(CKAsset(fileURL: photo), forKey: "Photo")
         let lostDate = NSDateFormatter()
         lostDate.timeZone = NSTimeZone.systemTimeZone()
@@ -264,7 +278,7 @@ func saveImageToFile(image: UIImage) -> NSURL
         let Latitude: CLLocationDegrees = latitude
         let Longitude: CLLocationDegrees = longitude
         newRecord.setObject(CLLocation(latitude: Latitude, longitude: Longitude), forKey: "Location")
-        newRecord.setObject(dogs!.name, forKey: "Name")
+        newRecord.setObject(deletedDog!.name, forKey: "Name")
         publicDatabase!.saveRecord(newRecord, completionHandler: ({returnRecord, error in
             if let err = error {
                 dispatch_async(dispatch_get_main_queue()) {
@@ -286,9 +300,9 @@ func saveImageToFile(image: UIImage) -> NSURL
 
 
     func saveDogs() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(doggies, toFile: dog.archiveURL!.path!)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(dogs, toFile: dog.archiveURL!.path!)
         if !isSuccessfulSave {
-            print("Failed to save dogs...")
+            print("Failed to save deletedDog...")
         }
         
     }

@@ -177,7 +177,7 @@ class Dogs: UITableViewController {
    
     @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
         //let source  = sender.sourceViewController as? AddDogImage
-        if let sourceViewController = sender.sourceViewController as? AddDogImage, pupies = sourceViewController.dogs {
+        if let sourceViewController = sender.sourceViewController as? AddDogImage, pupies = sourceViewController.myNewDog {
             // Add a new meal.
             let newIndexPath = NSIndexPath(forRow: dogs.count + 5, inSection: 0)
             dogs.append(pupies)
@@ -223,7 +223,7 @@ class Dogs: UITableViewController {
     func loadSampleDogs () {
         let Dog1 = UIImage(named: "Nimble")!
         let sound = NSURL(fileReferenceLiteral: "Dog Bark.mp3")
-        let Dog = dog(name: "Nimble", photo: Dog1, date: NSDate(), breed: "Labrador Retriever", trackerNumber: "Sw8w5u2", city: "city", color:  "Red", sound: sound)!
+        let Dog = dog(name: "Nimble", photo: Dog1, date: NSDate(), breed: "Labrador Retriever", trackerNumber: "Sw8w5u2", city: "city", color:  "Red", sound: sound, id: 1000)!
         dogs += [Dog]
     }
 }

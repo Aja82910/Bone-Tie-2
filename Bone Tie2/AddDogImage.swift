@@ -19,15 +19,17 @@ class AddDogImage: UIViewController, UIImagePickerControllerDelegate, UINavigati
     var AddDogColor = String()
     var AddDogImage: UIImage?
     var AddDogSound: NSURL?
-    var dogs: dog?
+    var myNewDog: dog?
     let container = CKContainer.defaultContainer()
     var publicDatabase: CKDatabase?
     var privateDatabase: CKDatabase?
     var currentRecord: CKRecord?
     var photoURL: NSURL?
+    var id = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        id = getID()
         publicDatabase = container.publicCloudDatabase
         privateDatabase = container.privateCloudDatabase
         DogImage.frame = CGRect(x: self.DogImage.frame.minX, y: self.DogImage.frame.minY, width: self.DogImage.frame.height, height: self.DogImage.frame.height)
@@ -78,15 +80,25 @@ class AddDogImage: UIViewController, UIImagePickerControllerDelegate, UINavigati
         let date = NSDate()
         pictures.append(photo!)
         text.append(AddDogName)
-        if let doggies = dog(name: AddDogName, photo: photo, date: date, breed: AddDogBreed, trackerNumber: AddDogCode, city: AddDogCity, color:  AddDogColor, sound:  AddDogSound) {
+        if let doggies = dog(name: AddDogName, photo: photo, date: date, breed: AddDogBreed, trackerNumber: AddDogCode, city: AddDogCity, color:  AddDogColor, sound:  AddDogSound, id: id) {
                 self.performSegueWithIdentifier("Connected", sender: self)
-                dogs = doggies
+                myNewDog = doggies
             }
         else {
             notifyUser("Could not Connect", message: "There was a saving error.\n Please Try Again")
         }
     }
-    
+    func getID() -> Int {
+        var dogs = [dog]()
+        if let savedDog = loadDogs() {
+            dogs += savedDog
+        }
+        var id = 0
+        if dogs.count != 0 {
+            id = dogs[dogs.count - 1].id + 1
+        }
+        return id
+    }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "Connected" {
@@ -98,7 +110,7 @@ class AddDogImage: UIViewController, UIImagePickerControllerDelegate, UINavigati
             let date = NSDate()
             pictures.append(photo!)
             text.append(AddDogName)
-            dogs = dog(name: AddDogName, photo: photo, date: date, breed: AddDogBreed, trackerNumber: AddDogCode, city: AddDogCity, color: AddDogColor, sound: AddDogSound)
+            myNewDog = dog(name: AddDogName, photo: photo, date: date, breed: AddDogBreed, trackerNumber: AddDogCode, city: AddDogCity, color: AddDogColor, sound: AddDogSound, id: id)
             saveDogs()
             let dogID = CKRecordID(recordName: AddDogName + AddDogCode)
             let newRecord = CKRecord(recordType: "Dogs", recordID: dogID)
@@ -223,9 +235,9 @@ class AddDogImage: UIViewController, UIImagePickerControllerDelegate, UINavigati
         return NSURL.fileURLWithPath(filePath)
     }
     func saveDogs() {
-        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(dogs!, toFile: dog.archiveURL!.path!)
+        let isSuccessfulSave = NSKeyedArchiver.archiveRootObject(myNewDog!, toFile: dog.archiveURL!.path!)
         if !isSuccessfulSave {
         }
     }
-
 }
+

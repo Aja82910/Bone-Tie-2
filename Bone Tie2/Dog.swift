@@ -16,9 +16,9 @@ class dog: NSObject, NSCoding {
     var city: String
     var color: String
     var sound: NSURL?
+    var id: Int
     static let doccumentDirectory = NSFileManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first
     static let archiveURL = doccumentDirectory?.URLByAppendingPathComponent("Dogs")
-    static let archivedURL = doccumentDirectory?.URLByAppendingPathComponent("Lost")
     
     // MARK: Initialization
     struct propertyKey {
@@ -30,9 +30,10 @@ class dog: NSObject, NSCoding {
         static let cityKey = "city"
         static let colorKey = "color"
         static let soundKey = "sound"
+        static let idKey = "id"
     }
     
-    init?(name: String, photo: UIImage?, date: NSDate, breed: String, trackerNumber: String, city: String, color: String, sound: NSURL?) {
+    init?(name: String, photo: UIImage?, date: NSDate, breed: String, trackerNumber: String, city: String, color: String, sound: NSURL?, id: Int) {
         // Initialize stored properties.
         self.name = name
         self.photo = photo
@@ -42,6 +43,7 @@ class dog: NSObject, NSCoding {
         self.city = city
         self.color = color
         self.sound = sound
+        self.id = id
     }
     // Initialization should fail if there is no name or if the rating is negative.
     // return nil
@@ -54,7 +56,8 @@ class dog: NSObject, NSCoding {
         aCoder.encodeObject(city, forKey: propertyKey.cityKey)
         aCoder.encodeObject(date, forKey: propertyKey.dateKey)
         aCoder.encodeObject(color, forKey:  propertyKey.colorKey)
-        aCoder.encodeObject(sound, forKey:  propertyKey.soundKey) // RAM to Hardrive
+        aCoder.encodeObject(sound, forKey:  propertyKey.soundKey)
+        aCoder.encodeObject(id, forKey:  propertyKey.idKey) // RAM to Hardrive
     }
     required convenience init?(coder aDecoder: NSCoder) {
         let name = aDecoder.decodeObjectForKey(propertyKey.nameKey) as! String // Hardrive to RAM
@@ -65,6 +68,7 @@ class dog: NSObject, NSCoding {
         let city = aDecoder.decodeObjectForKey(propertyKey.cityKey) as! String
         let color = aDecoder.decodeObjectForKey(propertyKey.colorKey) as! String
         let sound = aDecoder.decodeObjectForKey(propertyKey.soundKey) as! NSURL? //If nil it is the default sound
-        self.init(name: name, photo: photo, date: date, breed: breed, trackerNumber: trackerNumber, city: city, color: color, sound: sound)
+        let id = aDecoder.decodeObjectForKey(propertyKey.idKey) as! Int
+        self.init(name: name, photo: photo, date: date, breed: breed, trackerNumber: trackerNumber, city: city, color: color, sound: sound, id: id)
     }
 }

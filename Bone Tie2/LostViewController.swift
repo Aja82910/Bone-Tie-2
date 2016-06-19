@@ -1180,8 +1180,7 @@ overlay: MKOverlay) -> MKOverlayRenderer {
         print(segue.identifier)
         if segue.identifier == "Setting" {
             let DestViewController = segue.destinationViewController as! Setings
-            DestViewController.dogs = self.doggie
-            print(DestViewController.dogs?.name)
+            DestViewController.deletedDog = self.doggie
         }
         if segue.identifier == "DogsInfoLocation" {
             let DestViewController = segue.destinationViewController as! DogLocationViewController
